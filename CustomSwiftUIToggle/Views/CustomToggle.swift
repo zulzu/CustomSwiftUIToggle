@@ -1,13 +1,16 @@
 
 import SwiftUI
 
+/// Creates a toggle that displays a custom label.
 struct CustomToggle: View {
     
     //------------------------------------
     // MARK: Properties
     //------------------------------------
     // # Public/Internal/Open
+    // The title of the toggle
     let title: String
+    // The state of the toggle
     @Binding var isOn: Bool
 
     // # Private/Fileprivate

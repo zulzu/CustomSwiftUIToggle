@@ -1,6 +1,7 @@
 
 import SwiftUI
 
+/// A toggle style that specifies the appearence of a toggle.
 public struct RectangularToggleStyle: ToggleStyle {
     
     //------------------------------------
