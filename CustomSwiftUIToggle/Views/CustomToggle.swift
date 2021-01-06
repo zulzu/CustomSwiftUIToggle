@@ -12,6 +12,8 @@ struct CustomToggle: View {
     let title: String
     // The state of the toggle
     @Binding var isOn: Bool
+    // The width of the toggle's outer shape
+    let toggleWidth: CGFloat
 
     // # Private/Fileprivate
     
@@ -23,22 +25,29 @@ struct CustomToggle: View {
             HStack {
                 
                 Text(title)
-                    .fontWeight(.medium)
+                    .font(Font.custom("Helvetica Light", size: 24))
+                    .fontWeight(.regular)
                     .multilineTextAlignment(.leading)
                 Spacer()
                 Toggle("", isOn: $isOn)
-                    .toggleStyle(RectangularToggleStyle())
+                    .toggleStyle(RectangularToggleStyle(width: toggleWidth))
             }
         }
     }
     
-    //=======================================
-    // MARK: Public Methods
-    //=======================================
-    
-    //=======================================
-    // MARK: Private Methods
-    //=======================================
+    //------------------------------------
+    // MARK: Initilisers
+    //------------------------------------
+    /// Creates a toggle that displays a custom label.
+    /// - Parameters:
+    ///   - title: The title of the toggle
+    ///   - isOn: The state of the toggle
+    ///   - toggleWidth: The width of the toggle's outer shape
+    public init(title: String, isOn: Binding<Bool>, toggleWidth: CGFloat) {
+        self.title = title
+        self._isOn = isOn
+        self.toggleWidth = toggleWidth
+    }
 }
 
 
@@ -47,6 +56,6 @@ struct CustomToggle: View {
 //=======================================
 struct CustomToggle_Previews: PreviewProvider {
     static var previews: some View {
-        CustomToggle(title: "Toggle title", isOn: Binding.constant(true))
+        CustomToggle(title: "Toggle title", isOn: Binding.constant(true), toggleWidth: 60)
     }
 }

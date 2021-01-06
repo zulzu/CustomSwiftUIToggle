@@ -15,15 +15,12 @@ public struct RectangularToggleStyle: ToggleStyle {
     /// The height of the toggle's bounding box is determined by multiplying the toggleWidth parameter by this value
     private let heightMultiplier: CGFloat = 0.5
     
-    //=======================================
-    // MARK: Public Methods
-    //=======================================
     //------------------------------------
     // MARK: Initilisers
     //------------------------------------
     /// Initilise an instance
     /// - Parameter width: The width of the toggle's outer shape
-    public init(width: CGFloat = 60) {
+    public init(width: CGFloat) {
         self.toggleWidth = width
     }
     
@@ -72,9 +69,9 @@ struct RectangularToggleStyle_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
             Toggle("Toggle test 1", isOn: Binding.constant(true))
-                .toggleStyle(RectangularToggleStyle())
+                .toggleStyle(RectangularToggleStyle(width: 40))
             Toggle("Toggle test 2", isOn: Binding.constant(false))
-                .toggleStyle(RectangularToggleStyle())
+                .toggleStyle(RectangularToggleStyle(width: 120))
         }
         .padding()
     }

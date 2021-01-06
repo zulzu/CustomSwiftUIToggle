@@ -15,8 +15,8 @@ struct ContentView: View {
     // # Body
     var body: some View {
         
-        CustomToggle(title: "Custom toggle", isOn: $isToggleOn)
-            .padding()
+        CustomToggle(title: "Custom toggle", isOn: $isToggleOn, toggleWidth: 48)
+            .padding(25)
     }
     
     //=======================================
