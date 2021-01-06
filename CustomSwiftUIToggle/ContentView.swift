@@ -9,11 +9,14 @@ struct ContentView: View {
     // # Public/Internal/Open
     
     // # Private/Fileprivate
+    /// For changing the toggle
+    @State private var isToggleOn = false
     
     // # Body
     var body: some View {
         
-        Text("Hello, World!")
+        CustomToggle(title: "Custom toggle", isOn: $isToggleOn)
+            .padding()
     }
     
     //=======================================
